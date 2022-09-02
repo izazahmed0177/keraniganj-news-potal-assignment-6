@@ -79,28 +79,34 @@ const displayCategoryDetails = async (details) => {
         <div class="row g-0">
 
             <div class="col-md-4">
-                <img src="${detail.image_url}" class="img-fluid rounded-start" alt="...">
+                <img src="${detail.image_url}" class="img-fluid h-100 rounded-start" alt="...">
             </div>
 
             <div class="col-md-8">
 
                 <div class="card-body">
                     <h5 class="card-title">${detail.title}</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural
-                        lead-in to additional content. This content is a little bit longer.</p>
+                    <p class="card-text">${detail.details}</p>
                     <div>
                         <div class="d-flex flex-row mb-3 justify-content-between">
-                            <div class="p-2">
-                                <div class="d-flex flex-row">
-                                    <div>
-                                        <img src="" alt="">
+
+                        
+                            <div class="p-2 d-inline ">
+                                <div class="p-2">
+                                    
+                                    <img src="${detail.author.img}" class="w-25  rounded-circle " alt="...">
+                                    
+                                    <div class="d-inline">
+                                    <h5>${detail.author.name}</h5>
+                                        
+                                        <p>${detail.author.published_date}</p>
                                     </div>
-                                    <div>
-                                        <h5>java</h5>
-                                        <p>hhggg</p>
-                                    </div>
+                                        
+                                   
                                 </div>
                             </div>
+
+
                             <div class="p-2">
 
                                 <div class="d-flex flex-row">
@@ -112,7 +118,7 @@ const displayCategoryDetails = async (details) => {
                                             <path
                                                 d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z" />
                                         </svg></i>
-                                    <p>1.5 M</p>
+                                    <p>${detail.total_view} M</p>
                                 </div>
 
                             </div>
