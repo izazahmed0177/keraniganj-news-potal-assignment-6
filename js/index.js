@@ -40,14 +40,14 @@ const setAllCategory = async (categorys) => {
 
 
     for (let category of categorys) {
-        console.log(category)
+        console.log(category.category_id)
 
         const categoryDiv = document.createElement('div');
 
 
         categoryDiv.innerHTML = `
-            <li class="nav-item">
-                 <a class="nav-link active" aria-current="page" href="#">${category.category_name}</a>
+            <li class="nav-item" >
+                 <a class="nav-link active" onclick="loadCategoryDetails('${category.category_id}')" aria-current="page" href="#">${category.category_name}</a>
             </li>
     
             `
@@ -59,4 +59,23 @@ const setAllCategory = async (categorys) => {
 }
 
 
+
+const loadCategoryDetails = async id => {
+    const url = `https://openapi.programming-hero.com/api/news/category/'${id}'`;
+
+    const res = await fetch(url);
+    const data = await res.json();
+    // console.log(data)
+    // console.log(data.data)
+    // displayPhoneDetails(data.data)
+    displayCategoryDetails(data)
+    displayCategoryDetails(data.data)
+}
+
+const displayCategoryDetails = category => {
+    console.log(category);
+
+}
+
+// loadCategoryDetails();
 loadAllCategory();
