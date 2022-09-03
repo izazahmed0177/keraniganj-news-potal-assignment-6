@@ -123,7 +123,7 @@ const displayCategoryDetails = async (details) => {
                                         <img src="${detail.author.img}" class="w-25  rounded-circle " alt="...">
                                         
                                         <div class="d-inline">
-                                        <h5>${detail.author.name}</h5>
+                                        <h5>${detail.author.name ? detail.author.name: 'No Author Found'}</h5>
                                             
                                             
 
@@ -218,6 +218,8 @@ const displayCategoryDetailsModal = async (detailModal) => {
         <img class="img-fluid  rounded-start" src="${modalsDetail.image_url}"/>
 
         <p>${modalsDetail.details}</p>
+        <p>Total View: ${modalsDetail.total_view ? modalsDetail.total_view:'No View'}  <spen>  Rating: ${modalsDetail.rating.number ? modalsDetail.rating.number :'No Rating'} </spen></p>
+        <h5>Author: ${modalsDetail.author.name ? modalsDetail.author.name: 'No Author Found'}</h5>
         
         `;
     }
