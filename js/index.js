@@ -33,7 +33,7 @@ const setAllCategory = async (categorys) => {
 
         categoryDiv.innerHTML = `
             <li class="nav-item" >
-                 <a class="nav-link active" onclick="loadCategoryDetails('${category.category_id}')" aria-current="page" href="#">${category.category_name}</a>
+                 <a class="nav-link text-secondary hover-underline-animation" onclick="loadCategoryDetails('${category.category_id}')" aria-current="page" href="#">${category.category_name}</a>
             </li>
     
             `
