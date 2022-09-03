@@ -178,6 +178,8 @@ const displayCategoryDetails = async (details) => {
         });
         ////
 
+        toggleSpinner(false);
+
     }
 
     // for (let detail of details) {
@@ -225,6 +227,15 @@ const displayCategoryDetailsModal = async (detailModal) => {
     }
 
 
+}
+
+const toggleSpinner = isLoding => {
+    const loaderSection = document.getElementById('loader')
+    if (isLoding) {
+        loaderSection.classList.remove('d-none')
+    } else {
+        loaderSection.classList.add('d-none')
+    }
 }
 
 
