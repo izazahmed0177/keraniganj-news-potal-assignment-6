@@ -33,7 +33,7 @@ const setAllCategory = async (categorys) => {
 
         categoryDiv.innerHTML = `
             <li class="nav-item" >
-                 <a class="nav-link text-secondary hover-underline-animation" onclick="loadCategoryDetails('${category.category_id}')" aria-current="page" href="#">${category.category_name}</a>
+                 <a class="nav-link text-secondary hover-underline-animation" onclick="loadCategoryDetails('${category.category_id}','${category.category_name}')" aria-current="page" href="#">${category.category_name}</a>
             </li>
     
             `
@@ -46,25 +46,27 @@ const setAllCategory = async (categorys) => {
 
 
 
-const loadCategoryDetails = async id => {
+const loadCategoryDetails = async (id, name) => {
 
     //start loader
     toggleSpinner(true);
+    const categoriName = name;
+
 
     const url = `https://openapi.programming-hero.com/api/news/category/${id}`;
 
     const res = await fetch(url);
     const data = await res.json();
 
-    displayCategoryDetails(data)
+    displayCategoryDetails(data, categoriName)
     // displayCategoryDetails(data.data)
 }
 
-const displayCategoryDetails = async (details) => {
+const displayCategoryDetails = async (details, categoriName) => {
     // console.log(details.status);
     // console.log(details.data.length)
 
-
+    // console.log(categoriName);
 
     const categoryDetailsContainer = document.getElementById('category-details-container')
 
@@ -81,6 +83,10 @@ const displayCategoryDetails = async (details) => {
 
         const categoryElement = document.getElementById('category-element')
         categoryElement.innerText = `${details.data.length}`;
+
+        const categoryName1 = document.getElementById('category-name');
+        categoryName1.innerText = categoriName;
+
         toggleSpinner(false);
 
     } else {
@@ -91,6 +97,10 @@ const displayCategoryDetails = async (details) => {
 
         const categoryElement = document.getElementById('category-element')
         categoryElement.innerText = `${details.data.length}`;
+
+
+        const categoryName1 = document.getElementById('category-name');
+        categoryName1.innerText = categoriName;
 
 
         console.log(details.data)
