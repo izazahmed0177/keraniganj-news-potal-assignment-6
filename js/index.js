@@ -47,6 +47,10 @@ const setAllCategory = async (categorys) => {
 
 
 const loadCategoryDetails = async id => {
+
+    //start loader
+    toggleSpinner(true);
+
     const url = `https://openapi.programming-hero.com/api/news/category/${id}`;
 
     const res = await fetch(url);
@@ -77,6 +81,7 @@ const displayCategoryDetails = async (details) => {
 
         const categoryElement = document.getElementById('category-element')
         categoryElement.innerText = `${details.data.length}`;
+        toggleSpinner(false);
 
     } else {
 
