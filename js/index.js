@@ -58,8 +58,8 @@ const loadCategoryDetails = async id => {
 }
 
 const displayCategoryDetails = async (details) => {
-    console.log(details.status);
-    console.log(details.data.length)
+    // console.log(details.status);
+    // console.log(details.data.length)
 
 
 
@@ -71,7 +71,7 @@ const displayCategoryDetails = async (details) => {
 
 
     if (details.status == false) {
-        console.log('no data found')
+        // console.log('no data found')
 
         const noNewsMass = document.getElementById('no-news-massade');
         noNewsMass.classList.remove('d-none')
@@ -89,10 +89,13 @@ const displayCategoryDetails = async (details) => {
         categoryElement.innerText = `${details.data.length}`;
 
 
+        console.log(details.data)
+        // console.log(details.data.total_view[2])
+        details.data.sort((a, b) => b.total_view - a.total_view);
 
         details.data.forEach(detail => {
 
-            console.log(detail)
+            // console.log(detail)
 
 
 
@@ -104,16 +107,16 @@ const displayCategoryDetails = async (details) => {
             <div class="card mb-3 shadow" style="max-width: 100%;">
             <div class="row g-0">
     
-                <div class="col-md-4">
-                    <img src="${detail.image_url}" class="img-fluid h-100 rounded-start" alt="...">
+                <div class="col-md-4 col-sm-12 col-12">
+                    <img src="${detail.image_url}" class="img-fluid  h-100 w-sm-100 " alt="...">
                 </div>
     
-                <div class="col-md-8">
+                <div class="col-md-8 col-sm-12 col-12">
     
                     <div class="card-body">
                       <div>
-                          <h5 class="card-title">${detail.title}</h5>
-                           <p class="card-text">${detail.details.length > 310 ? detail.details.slice(0,310) + '...' : detail.details}</p>
+                          <h4 class="card-title fw-bold">${detail.title}</h4>
+                           <p class="card-text">${detail.details.length > 310 ? detail.details.slice(0,310) + '.....' : detail.details}</p>
                        </div>
                         
 
@@ -154,7 +157,7 @@ const displayCategoryDetails = async (details) => {
                                                 <path
                                                     d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z" />
                                             </svg> </i>
-                                        <p> ${detail.total_view} M</p>
+                                        <p> ${detail.total_view ? detail.total_view:'No View'} </p>
                                     </div>
     
                                 </div>
