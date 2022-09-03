@@ -66,6 +66,7 @@ const displayCategoryDetails = async (details) => {
     // }
 
     const categoryDetailsContainer = document.getElementById('category-details-container')
+    categoryDetailsContainer.textContent = ''
 
     details.data.forEach(detail => {
         console.log(detail)
@@ -86,7 +87,7 @@ const displayCategoryDetails = async (details) => {
 
                 <div class="card-body">
                     <h5 class="card-title">${detail.title}</h5>
-                    <p class="card-text">${detail.details}</p>
+                    <p class="card-text">${detail.details.length > 310 ? detail.details.slice(0,310) + '...' : detail.details}</p>
                     <div>
                         <div class="d-flex flex-row mb-3 justify-content-between">
 
@@ -99,7 +100,7 @@ const displayCategoryDetails = async (details) => {
                                     <div class="d-inline">
                                     <h5>${detail.author.name}</h5>
                                         
-                                        <p>${detail.author.published_date}</p>
+                                        <p>${detail.author.published_date.length > 10 ? detail.author.published_date.slice(0,10) : detail.author.published_date}</p>
                                     </div>
                                         
                                    
