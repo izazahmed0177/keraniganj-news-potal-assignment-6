@@ -66,13 +66,14 @@
 
         <section class="h-50">
             <div class="container found-item  bg-white">
-                <h5>4 items found for category Entertainment</h5>
+                <h5> <span id="category-element">4</span> items found for <span id="category-name">Entertainment</span>
+                    Category </h5>
 
             </div>
         </section>
         <!--  -->
 
-        <section>
+        <section class="container">
 
             <div id="no-news-massade" class="mt-4 d-none">
                 <h3>No News Found</h3>
@@ -155,6 +156,35 @@
 
 
             </div>
+        </section>
+
+        <section>
+
+            <!--  -->
+            <!-- Modal -->
+            <div class="modal fade" id="phoneDetailModal" tabindex="-1" aria-labelledby="phoneDetailModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="phoneDetailModalLabel">Modal title</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div id="phone-details" class="modal-body">
+                            <!-- <p id="phone-details-p">
+                            </p> -->
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
         </section>
 
     </main>

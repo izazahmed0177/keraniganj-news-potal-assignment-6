@@ -30,6 +30,8 @@ const setAllCategory = async (categorys) => {
         const categoryDiv = document.createElement('div');
 
 
+
+
         categoryDiv.innerHTML = `
             <li class="nav-item" >
                  <a class="nav-link active" onclick="loadCategoryDetails('${category.category_id}')" aria-current="page" href="#">${category.category_name}</a>
@@ -57,10 +59,16 @@ const loadCategoryDetails = async id => {
 
 const displayCategoryDetails = async (details) => {
     console.log(details.status);
+    console.log(details.data.length)
+
+
 
     const categoryDetailsContainer = document.getElementById('category-details-container')
 
     categoryDetailsContainer.textContent = ''
+
+
+
 
     if (details.status == false) {
         console.log('no data found')
@@ -68,18 +76,22 @@ const displayCategoryDetails = async (details) => {
         const noNewsMass = document.getElementById('no-news-massade');
         noNewsMass.classList.remove('d-none')
 
+        const categoryElement = document.getElementById('category-element')
+        categoryElement.innerText = `${details.data.length}`;
+
     } else {
 
         ///
         const noNewsMass = document.getElementById('no-news-massade');
         noNewsMass.classList.add('d-none')
 
-
-
+        const categoryElement = document.getElementById('category-element')
+        categoryElement.innerText = `${details.data.length}`;
 
 
 
         details.data.forEach(detail => {
+
             console.log(detail)
 
 
@@ -113,7 +125,9 @@ const displayCategoryDetails = async (details) => {
                                         <div class="d-inline">
                                         <h5>${detail.author.name}</h5>
                                             
-                                            <p>${detail.author.published_date.length > 10 ? detail.author.published_date.slice(0,10) : detail.author.published_date}</p>
+                                            
+
+                                            ${detail.author.published_date ? detail.author.published_date : 'no release Date found'}
                                         </div>
                                             
                                        
@@ -144,7 +158,7 @@ const displayCategoryDetails = async (details) => {
                                     <i class="fa-regular fa-star"></i>
                                 </div>
                                 <div class="p-2">
-                                    <button type="button" class="btn btn-primary">Details</button>
+                                    <button onclick="loadCategoryDetailsModal('${detail._id}')" type="button" class="btn btn-primary">Details</button>
                                 </div>
                             </div>
                         </div>
@@ -162,24 +176,44 @@ const displayCategoryDetails = async (details) => {
             categoryDetailsContainer.appendChild(div)
 
         });
-
-
-
-
         ////
 
     }
-
 
     // for (let detail of details) {
     //     console.log(detail)
     //     console.log(details.total_view);
 
     // }
+}
 
+
+//
+
+const loadCategoryDetailsModal = async id => {
+    const url = `https://openapi.programming-hero.com/api/news/${id}`;
+
+    const res = await fetch(url);
+    const data = await res.json();
+
+    // displayCategoryDetailsModal(data)
+    displayCategoryDetailsModal(data.data)
+
+}
+
+const displayCategoryDetailsModal = async (detailModal) => {
+    console.log(detailModal)
+
+    for (let modalsDetail of detailModal) {
+
+        console.log(modalsDetail)
+    }
 
 
 }
+
+
+
 
 
 
