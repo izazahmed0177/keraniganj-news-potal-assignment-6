@@ -107,11 +107,11 @@ const displayCategoryDetails = async (details) => {
             <div class="card mb-3 shadow" style="max-width: 100%;">
             <div class="row g-0">
     
-                <div class="col-md-4 col-sm-12 col-12">
+                <div class="col-md-4 col-sm-12 col-xs-12 text-lg-start text-md-start  text-center">
                     <img src="${detail.image_url}" class="img-fluid  h-100 w-sm-100 " alt="...">
                 </div>
     
-                <div class="col-md-8 col-sm-12 col-12">
+                <div class="col-md-8 col-sm-12 col-xs-12 text-lg-start text-md-start text-center">
     
                     <div class="card-body">
                       <div>
@@ -148,7 +148,7 @@ const displayCategoryDetails = async (details) => {
     
                                 <div class="p-2 col-md-2">
     
-                                    <div class="d-flex flex-row">
+                                    <div class=" ">
                                         <i class="bi bi-eye"><svg xmlns="http://www.w3.org/2000/svg"
                                                 width="16" height="16" fill="currentColor" class="bi bi-eye"
                                                 viewBox="0 0 16 16">
@@ -157,7 +157,7 @@ const displayCategoryDetails = async (details) => {
                                                 <path
                                                     d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z" />
                                             </svg> </i>
-                                        <p> ${detail.total_view ? detail.total_view:'No View'} </p>
+                                        <spin> ${detail.total_view ? detail.total_view:'No View'} </spin>
                                     </div>
     
                                 </div>
