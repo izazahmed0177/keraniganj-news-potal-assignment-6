@@ -158,7 +158,7 @@ const displayCategoryDetails = async (details) => {
                                     <i class="fa-regular fa-star"></i>
                                 </div>
                                 <div class="p-2">
-                                    <button onclick="loadCategoryDetailsModal('${detail._id}')" type="button" class="btn btn-primary">Details</button>
+                                    <button onclick="loadCategoryDetailsModal('${detail._id}')" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newsDetailModal">Details</button>
                                 </div>
                             </div>
                         </div>
@@ -207,6 +207,19 @@ const displayCategoryDetailsModal = async (detailModal) => {
     for (let modalsDetail of detailModal) {
 
         console.log(modalsDetail)
+
+        const modalTitle = document.getElementById('newsDetailModalLabel')
+        modalTitle.innerText = modalsDetail.title;
+
+        const newsDetails = document.getElementById('news-details');
+
+        newsDetails.innerHTML = `
+        
+        <img class="img-fluid  rounded-start" src="${modalsDetail.image_url}"/>
+
+        <p>${modalsDetail.details}</p>
+        
+        `;
     }
 
 
