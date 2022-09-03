@@ -2,7 +2,6 @@ const loadAllCategory = async () => {
     const url = 'https://openapi.programming-hero.com/api/news/categories'
     const response = await fetch(url);
     const data = await response.json();
-    // return data;
     // setAllCategory(data);
     // setAllCategory(data.data);
     setAllCategory(data.data.news_category);
@@ -249,10 +248,4 @@ const toggleSpinner = isLoding => {
     }
 }
 
-
-
-
-
-
-// loadCategoryDetails();
 loadAllCategory();
